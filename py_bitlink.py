@@ -21,7 +21,7 @@ BS_Error      = bslink.BS_Error
 BS_File       = bslink.BS_File
 BS_ID         = bslink.BS_ID
 BS_Init       = bslink.BS_Init
-BS_Intro      = bslink.BS_Intro
+
 BS_Name       = bslink.BS_Name
 BS_Open       = bslink.bs_open
 BS_OpenLink   = bslink.BS_OpenLink
@@ -41,7 +41,7 @@ BS_Demo.argtypes       = [c_int]
 BS_Error.argtypes      = [c_int]
 BS_File.argtypes       = [c_char_p]
 BS_ID.argtypes         = [c_char_p]
-BS_Intro.argtypes      = [c_float]
+
 BS_Name.argtypes       = [c_int, c_char_p]
 BS_Open.argtypes       = [c_int]
 BS_OpenLink.argtypes   = [c_char_p]
@@ -60,7 +60,7 @@ BS_Demo.restype       = c_bool
 BS_Error.restype      = c_int
 BS_File.restype       = c_bool
 BS_ID.restype         = c_char_p
-BS_Intro.restype      = c_float
+
 BS_Name.restype       = c_char_p
 BS_Open.restype       = c_int
 BS_OpenLink.restype   = c_int
