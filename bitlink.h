@@ -1,10 +1,16 @@
-/* bitlink.h -- BitScope Communications Library Version 1.1 FG14BLNK
+/* bitlink.h -- BitScope Link Library
  *
- * Copyright (C) 2018 BitScope Designs http://bitscope.com
+ * Copyright (C) 2007-2019 BitScope Designs http://bitscope.com
+ *
+ * An API to connect with BitScope via the Link Protocol.
+ *
+ * https://docs.bitscope.com/AZZ807D7
  *
  * You may use this library software for any purpose, or distribute it
  * or derivative works in any form subject to the terms of the BitScope
  * Library Software Licence V1.1.
+ *
+ * RGJ5R50N BitScope Link FG14BLNK Build 04 Version 1.1
  */
 #ifndef _BITLINK_H
 #define _BITLINK_H
@@ -26,6 +32,15 @@ typedef unsigned int bool;
 extern "C" {
 #endif
 
+ /* magic values */
+
+#define BS_ASK -1           /* request a prevailing value */
+#define BS_ERROR -1         /* error (return) value */
+
+#define BS_ZERO 0           /* zero timeout (don't wait) */
+#define BS_BRIEF 100        /* brief timeout (wait briefly) */ 
+#define BS_FOREVER -1       /* no timeout (wait forever) */ 
+
  /* Library API | Types */
     
     typedef void     ( BS_Broadcast_t )       ( char * ); 
@@ -36,7 +51,6 @@ extern "C" {
     typedef bool     ( BS_File_t )            ( char * ); 
     typedef char *   ( BS_ID_t )              ( int );
     typedef void     ( BS_Init_t )            ( void );
-    typedef double   ( BS_Intro_t )           ( double ); 
     typedef char *   ( BS_Name_t )            ( int, char * );
     typedef int      ( BS_Open_t )            ( int );
     typedef int      ( BS_OpenLink_t )        ( char * );
@@ -59,7 +73,6 @@ extern "C" {
 	BS_File_t          BS_File;
 	BS_ID_t            BS_ID;
 	BS_Init_t          BS_Init;
-	BS_Intro_t         BS_Intro;
 	BS_Name_t          BS_Name;
 	BS_Open_t          BS_Open;
 	BS_OpenLink_t      BS_OpenLink;
@@ -67,7 +80,7 @@ extern "C" {
 	BS_Reset_t         BS_Reset;
 	BS_Send_t          BS_Send;
 	BS_SendRaw_t       BS_SendRaw;
-	BS_Speed_t         BS_Speed;
+	BS_Speed_          BS_Speed;
 	BS_StartTimer_t    BS_StartTimer;
 	BS_StopTimer_t     BS_StopTimer;
 	BS_Version_t       BS_Version;
