@@ -10,8 +10,8 @@ elif platform.system() == "Linux":
 else:
     exit("OS not supported.")
 
-cdll.LoadLibrary("libbitlink." + lib_ext)
-bslink = CDLL("libbitlink." + lib_ext)
+cdll.LoadLibrary("libBitLink." + lib_ext)
+bslink = CDLL("libBitLink." + lib_ext)
 
 BS_Broadcast  = bslink.BS_Broadcast
 BS_Close      = bslink.BS_Close
@@ -21,9 +21,9 @@ BS_Error      = bslink.BS_Error
 BS_File       = bslink.BS_File
 BS_ID         = bslink.BS_ID
 BS_Init       = bslink.BS_Init
-
+# BS_Intro      = bslink.BS_Intro
 BS_Name       = bslink.BS_Name
-BS_Open       = bslink.bs_open
+BS_Open       = bslink.BS_Open
 BS_OpenLink   = bslink.BS_OpenLink
 BS_Receive    = bslink.BS_Receive
 BS_Reset      = bslink.BS_Reset
@@ -36,16 +36,16 @@ BS_Version    = bslink.BS_Version
 
 
 BS_Broadcast.argtypes  = [c_int, c_char_p]
-BS_Count.argtypes      = [c_int, c_char_p]
+BS_Count.argtypes      = [c_int]
 BS_Demo.argtypes       = [c_int]
 BS_Error.argtypes      = [c_int]
 BS_File.argtypes       = [c_char_p]
 BS_ID.argtypes         = [c_char_p]
-
+# BS_Intro.argtypes      = [c_float]
 BS_Name.argtypes       = [c_int, c_char_p]
 BS_Open.argtypes       = [c_int]
 BS_OpenLink.argtypes   = [c_char_p]
-BS_Receive.argtypes    = [c_int, c_char_p, c_int, c_int]
+BS_Receive.argtypes    = [c_int, POINTER(c_ubyte), c_int, c_int]
 BS_Reset.argtypes      = [c_int]
 BS_Send.argtypes       = [c_int, c_char_p, c_int]
 BS_SendRaw.argtypes    = [c_int, c_char_p, c_int]
@@ -60,7 +60,7 @@ BS_Demo.restype       = c_bool
 BS_Error.restype      = c_int
 BS_File.restype       = c_bool
 BS_ID.restype         = c_char_p
-
+# BS_Intro.restype      = c_float
 BS_Name.restype       = c_char_p
 BS_Open.restype       = c_int
 BS_OpenLink.restype   = c_int
